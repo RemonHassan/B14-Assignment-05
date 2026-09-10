@@ -1,9 +1,10 @@
 import "./App.css";
+import NavBaar from "./NavBaar";
 
 function App() {
   return (
     <>
-      <h2>Hello DevStack</h2>
+      <NavBaar></NavBaar>
     </>
   );
 }
