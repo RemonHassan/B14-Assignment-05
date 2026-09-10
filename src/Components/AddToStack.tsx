@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import type { ITechnology } from "../Types/CardType";
 
 export interface AddToStackProps {
@@ -12,11 +13,31 @@ export default function AddToStack({
   // Remove single technology
   const handleRemove = (id: string) => {
     setAddToStack((prev) => prev.filter((item) => item.id !== id));
+    toast.error("Item Removed", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   // Remove all technologies
   const handleRemoveAll = () => {
     setAddToStack([]);
+    toast.error("whole Stack was Removed!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
