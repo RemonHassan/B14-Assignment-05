@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import type { ITechnology } from "../Types/CardType";
 import { IoIosStar } from "react-icons/io";
 
@@ -12,15 +13,25 @@ export default function SingleCard({
   addToStack,
   setAddToStack,
 }: SingleCardProps) {
+  const isAdded = addToStack.some((item) => item.id === card.id);
+
   const handleAddToStack = () => {
-    console.log("On Clicked pressed", card.name);
-    setAddToStack([...addToStack, card]);
+    if (!isAdded) {
+      setAddToStack([...addToStack, card]);
+      toast.success(`${card.name} added to stack!`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+    }
   };
+
   return (
-    <div
-      key={card.id}
-      className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
-    >
+    <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
       <div>
         <div className="flex items-center justify-between mb-4">
           <img
@@ -28,6 +39,7 @@ export default function SingleCard({
             alt={`${card.name} icon`}
             className="w-10 h-10 object-contain"
           />
+
           {card.badge && (
             <span className="bg-sky-50 text-sky-500 font-medium text-xs px-3 py-1 rounded-full">
               {card.badge}
@@ -56,10 +68,15 @@ export default function SingleCard({
         </div>
 
         <button
-          onClick={() => handleAddToStack()}
-          className="w-full bg-[#0b0f19] hover:bg-gray-800 text-white font-medium py-2.5 px-4 rounded-xl text-sm transition-colors cursor-pointer"
+          disabled={isAdded}
+          onClick={handleAddToStack}
+          className={`w-full font-medium py-2.5 px-4 rounded-xl text-sm transition-colors ${
+            isAdded
+              ? "bg-gray-100 text-gray-400 border border-gray-200 cursor-not-allowed"
+              : "bg-[#0b0f19] hover:bg-gray-800 text-white cursor-pointer"
+          }`}
         >
-          Add to Stack
+          {isAdded ? "Added to Stack" : "Add to Stack"}
         </button>
       </div>
     </div>
