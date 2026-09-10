@@ -10,7 +10,6 @@ export default function AllCards({ cardsPromise }: AllCardsProps) {
   const cards = use(cardsPromise);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12">
-      {/* Grid Container */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cards.map((card) => (
           <div
@@ -18,7 +17,6 @@ export default function AllCards({ cardsPromise }: AllCardsProps) {
             className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
           >
             <div>
-              {/* Header: Icon & Badge */}
               <div className="flex items-center justify-between mb-4">
                 <img
                   src={card.icon}
@@ -32,7 +30,6 @@ export default function AllCards({ cardsPromise }: AllCardsProps) {
                 )}
               </div>
 
-              {/* Title & Description */}
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {card.name}
               </h3>
@@ -41,7 +38,6 @@ export default function AllCards({ cardsPromise }: AllCardsProps) {
               </p>
             </div>
 
-            {/* Footer Metadata & Action Button */}
             <div className="space-y-4 pt-4 border-t border-gray-50">
               <div className="flex items-center justify-between text-xs text-gray-500 font-medium">
                 <span className="bg-gray-100 text-gray-600 px-2.5 py-1 rounded-md">
