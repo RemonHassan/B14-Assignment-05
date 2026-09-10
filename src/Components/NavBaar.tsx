@@ -1,4 +1,4 @@
-import logo from "../src/assets/logo-text.png";
+import logo from "../assets/logo-text.png";
 
 function NavBaar() {
   return (
