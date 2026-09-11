@@ -19,7 +19,13 @@ function App() {
       <NavBaar></NavBaar>
       <Banner></Banner>
       <Explore></Explore>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 text-3xl bg-linear-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent font-bold">
+            Loading...
+          </div>
+        }
+      >
         <AllCards cardsPromise={cardsPromise}></AllCards>
       </Suspense>
       <Footer></Footer>
