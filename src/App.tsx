@@ -5,6 +5,7 @@ import NavBaar from "./Components/NavBaar";
 import type { ITechnology } from "./Types/CardType";
 import AllCards from "./Components/AllCards";
 import Explore from "./Components/Explore";
+import Footer from "./Components/Footer";
 
 const cardsFetch = async (): Promise<ITechnology[]> => {
   const res = await fetch("/public/data.json");
@@ -21,6 +22,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <AllCards cardsPromise={cardsPromise}></AllCards>
       </Suspense>
+      <Footer></Footer>
     </>
   );
 }
