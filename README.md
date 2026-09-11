@@ -19,7 +19,7 @@ A simple and easy-to-use website where developers can browse tech tools and buil
 
 ---
 
-## ✨ 3 Main Features
+## 3 Main Features
 
 1. **Add & Remove Tools:** Click "Add to Stack" to save a tool into your sidebar list. You can remove individual tools or clear them all at once.
 2. **Smart Buttons & Pop-ups:** Buttons change to "Added to Stack" once clicked so you can't add duplicates, and a friendly pop-up message appears.
